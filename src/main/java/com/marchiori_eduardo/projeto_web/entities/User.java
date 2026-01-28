@@ -1,5 +1,6 @@
 package com.marchiori_eduardo.projeto_web.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -20,6 +21,7 @@ public class User implements Serializable {
     private String password;
 
     @OneToMany(mappedBy = "client")
+    @JsonIgnore //para evitar looping
     private List<Order> orders = new ArrayList<>();
 
 
